@@ -1,4 +1,5 @@
 import { useObjects } from "../../contexts/ObjectsContext";
+import SingleObject from "./SingleObject";
 
 function ObjectData({data}) {
     return (
@@ -7,17 +8,15 @@ function ObjectData({data}) {
         </>
     )
 }
-
 function ObjectList() {
     const objects = useObjects()
     const objectList = objects.map(obj => 
         <li key={obj.id}>{obj.name} <ObjectData data={obj.data}/></li>
     );
-    const data = "null";
     return (
         <>
-            {data && <p>hay data</p>}
             <ul>{objectList}</ul>
+            <SingleObject id={7}/>
         </>
     )
 }
