@@ -1,26 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 import RecetaPage from './pages/receta'
 import ObjectsPage from './pages/objects'
 
-
-function Saludo() {
-  return (
-    <p>Hola que tal</p>
-  )
-}
-const productos = [
-    {nombre: "Caja", id: 1},
-    {nombre: "Caño", id: 2},
-    {nombre: "Vara", id: 3}
-]
 function App() {
   return (
-    <>
-      <ObjectsPage/>
-    </>
+    <Router>
+      <div>
+        <nav style={{ 
+          padding: '20px', 
+          borderBottom: '1px solid #ccc',
+          marginBottom: '20px',
+          backgroundColor: '#f5f5f5'
+        }}>
+          <Link 
+            to="/objects" 
+            style={{ 
+              marginRight: '20px', 
+              textDecoration: 'none',
+              padding: '8px 16px',
+              backgroundColor: '#007bff',
+              color: 'white',
+              borderRadius: '4px'
+            }}
+          >
+            Objects
+          </Link>
+          <Link 
+            to="/receta"
+            style={{ 
+              textDecoration: 'none',
+              padding: '8px 16px',
+              backgroundColor: '#28a745',
+              color: 'white',
+              borderRadius: '4px'
+            }}
+          >
+            Receta
+          </Link>
+        </nav>
+        
+        <Routes>
+          <Route path="/" element={<ObjectsPage />} />
+          <Route path="/objects" element={<ObjectsPage />} />
+          <Route path="/receta" element={<RecetaPage />} />
+        </Routes>
+      </div>
+    </Router>
   )
 }
 

@@ -1,12 +1,23 @@
 import { useState } from "react";
+import { Button } from "@mui/material";
 
 function MiBoton(props) {
-    const [count, setCount] = useState(props.count);
+    const [count, setCount] = useState(props.count || 0);
+    
     function onClick() {
         setCount(count + 1);
     }
+    
     return (
-        <button onClick={onClick}>Soy el botón {count}</button>
+        <Button 
+            variant="contained" 
+            color="primary" 
+            onClick={onClick}
+            sx={{ m: 1 }}
+        >
+            Soy el botón {count}
+        </Button>
     );
 }
+
 export default MiBoton;
