@@ -28,7 +28,7 @@ function ObjectData({data}) {
 }
 
 function ObjectList() {
-    const objects = useObjects()
+    const { objects } = useObjects()
     
     return (
         <Box sx={{ maxWidth: 600, mx: 'auto', mt: 2 }}>
