@@ -3,6 +3,7 @@ import { ObjectsProvider, useObjects } from "../contexts/ObjectsContext";
 import ObjectList from "../components/objects/ObjectsList";
 import MiBoton from "../components/MiBoton";
 import { Container, Typography, Alert, Box } from "@mui/material";
+import ObjectForm from "../components/objects/ObjectForm";
 
 function ObjectsPage() {
     const [hasError, setError] = useState(false);
@@ -28,6 +29,8 @@ function ObjectsPage() {
                     </Alert>
                 )}
                 
+                <ObjectForm />
+
                 <ObjectList/>
                 
                 <Box sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}>

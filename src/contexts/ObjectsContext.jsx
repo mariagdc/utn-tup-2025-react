@@ -29,3 +29,7 @@ export const ObjectsProvider = ({children}) => {
 export const useObjects = () => {
     return useContext(ObjectsContext);
 }
+
+export const addObject = () => {
+    return useContext(ObjectsContext);
+}
