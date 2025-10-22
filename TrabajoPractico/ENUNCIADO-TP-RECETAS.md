@@ -37,10 +37,6 @@ Deberás desarrollar una **aplicación web de recetas de cocina** que permita vi
   - Dificultad (Fácil, Media, Difícil)
   - Número de porciones
   - Botón "Ver Receta" que navega al detalle
-- Las tarjetas deben mostrarse en un grid responsive:
-  - 1 columna en móvil (xs)
-  - 2 columnas en tablet (sm y md)
-  - 3 columnas en desktop (lg y xl)
 
 #### 2. **Página de Detalle de Receta** (`/recetas/:id`)
 - Mostrar la información completa de una receta específica:
