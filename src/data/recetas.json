@@ -1,0 +1,55 @@
+[
+  { 
+    "id": 1,
+    "titulo": "Pasta Carbonara",
+    "descripcion": "Receta clásica italiana de pasta con salsa cremosa de huevo y panceta",
+    "imagen": "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=400",
+    "tiempoPreparacion": "30 minutos",
+    "dificultad": "Media",
+    "porciones": 4,
+    "ingredientes": [
+      { "cantidad": "400", "unidad": "g", "nombre": "Spaghetti" },
+      { "cantidad": "200", "unidad": "g", "nombre": "Panceta o tocino" },
+      { "cantidad": "4", "unidad": "unidades", "nombre": "Huevos" },
+      { "cantidad": "100", "unidad": "g", "nombre": "Queso parmesano rallado" },
+      { "cantidad": "1", "unidad": "pizca", "nombre": "Pimienta negra" },
+      { "cantidad": "1", "unidad": "pizca", "nombre": "Sal" }
+    ],
+    "pasos": [
+      "Cocinar la pasta en agua hirviendo con sal hasta que esté al dente",
+      "Mientras tanto, cortar la panceta en cubos pequeños y dorarla en una sartén",
+      "Batir los huevos con el queso parmesano rallado y pimienta",
+      "Escurrir la pasta reservando un poco del agua de cocción",
+      "Mezclar la pasta caliente con la panceta fuera del fuego",
+      "Agregar la mezcla de huevo y queso, mezclando rápidamente",
+      "Si es necesario, agregar un poco del agua de cocción para crear una salsa cremosa",
+      "Servir inmediatamente con más queso parmesano y pimienta"
+    ],
+    "categoria": "Platos Principales"
+  },
+  {
+    "id": 2,
+    "titulo": "Ensalada César",
+    "descripcion": "Ensalada fresca con lechuga romana, crutones caseros y aderezo césar",
+    "imagen": "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400",
+    "tiempoPreparacion": "20 minutos",
+    "dificultad": "Fácil",
+    "porciones": 2,
+    "ingredientes": [
+      { "cantidad": "1", "unidad": "unidad", "nombre": "Lechuga romana grande" },
+      { "cantidad": "100", "unidad": "g", "nombre": "Pechuga de pollo" },
+      { "cantidad": "50", "unidad": "g", "nombre": "Queso parmesano" },
+      { "cantidad": "2", "unidad": "tazas", "nombre": "Crutones" },
+      { "cantidad": "4", "unidad": "cucharadas", "nombre": "Aderezo césar" }
+    ],
+    "pasos": [
+      "Lavar y secar la lechuga romana",
+      "Cortar la lechuga en trozos medianos",
+      "Cocinar la pechuga de pollo a la plancha y cortarla en tiras",
+      "En un bowl grande, mezclar la lechuga con el aderezo",
+      "Agregar el pollo, crutones y queso parmesano",
+      "Mezclar bien y servir inmediatamente"
+    ],
+    "categoria": "Ensaladas"
+  }
+]
