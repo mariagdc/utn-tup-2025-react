@@ -1,31 +1,41 @@
-import { createContext, useContext, useEffect, useState } from "react"
-const RecetaContext = createContext(null);
+import { createContext, useContext, useEffect, useState } from 'react';
 
-export const RecetaProvider = ({children}) => {
-    const [productos, setProductos] = useState([])
-    useEffect(() => {
-        fetch('/src/data/productos.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Error al traer productos ${response.status}`)
-            }
-            return response.json();
-        })
-        .then(data => {
-            setProductos(data)
-        })
-        .catch(error =>  {
-            console.log(`error al obtener productos ${error} `)
-            setError(true)
-        })
-    },[]);    
+import recetasData from '../data/recetas.json';
+
+const RecetasContext = createContext(null);
+
+export const RecetasProvider = ({children}) =>{
+
+    const [ recetas, setRecetas ] = useState([]);
+    const [ isLoading, setIsLoading ] = useState(true);
+    const [ error, setError ] = useState(null);
+
+    useEffect(()=>{
+        try {
+            setRecetas(recetasData);
+            setIsLoading(false);            
+        } catch (err) {
+            console.log("Error al cargar recetas: ", err);
+            setError('Error al cargar los datos de las recetas.');
+            setIsLoading(false);
+        }
+    },[]);
+
+    const getRecetaById = (id) =>{
+        return recetas.find(receta => receta.id === parseInt(id));
+    };
+
     return (
-        <RecetaContext.Provider value={productos}>
+        <RecetasContext.Provider value={{recetas, isLoading, error, getRecetaById}}>
             {children}
-        </RecetaContext.Provider>
-    )
+        </RecetasContext.Provider>
+    );
 }
 
-export const useProductos = () => {
-    return useContext(RecetaContext);
+export const useRecetas = () =>{
+    const context = useContext(RecetasContext);
+    if(!context){
+        throw new Error('useRecetas debe estar dentro de un RecetasProvider');
+    }
+    return context;
 }
