@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import ListaIngredientes from "../components/receta/Lista";
+import ListaIngredientes from "../components/recetas/recetaList";
 import { RecetaProvider } from "../contexts/RecetaContext";
 import { Container, Typography, Alert } from "@mui/material";
 
