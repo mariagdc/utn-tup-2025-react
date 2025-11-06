@@ -1,23 +1,30 @@
-import { List, ListItem, ListItemText, Typography, Divider } from "@mui/material";
-
+// IngredientesList.jsx
 const IngredientesList = ({ ingredientes }) => {
-    return(
-        <>
-            <Typography variant="h5" component="h2" gutterBottom sx={{ mt: 3, mb: 1, fontWeight: "bold"}}>
-                Ingredientes
-            </Typography>
-            <Divider sx={{ mb: 2 }} />
-            <List dense>
-                {ingredientes.map( (ingrediente, index) => (
-                    <ListItem key={index} sx={{ py: 0.5, px: 0 }}>
-                        <ListItemText 
-                            primary={`${ingrediente.cantidad} ${ingrediente.unidad} - ${ingrediente.nombre}`}
-                            primaryTypographyProps={{ variant: 'body1' }} 
-                        />
-                    </ListItem>
-                ))}
-            </List>
-        </>
-    );
-}
+  // Verificaciones de seguridad
+  if (!ingredientes) {
+    return <div>Cargando ingredientes...</div>;
+  }
+
+  if (!Array.isArray(ingredientes)) {
+    return <div>Error: Formato de ingredientes incorrecto</div>;
+  }
+
+  if (ingredientes.length === 0) {
+    return <div>No se especificaron ingredientes para esta receta</div>;
+  }
+
+  return (
+    <div>
+      <h3>Ingredientes:</h3>
+      <ul>
+        {ingredientes.map((ingrediente, index) => (
+          <li key={index}>
+            {ingrediente.cantidad} {ingrediente.unidad} de {ingrediente.nombre}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 export default IngredientesList;

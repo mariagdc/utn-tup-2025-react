@@ -1,16 +1,16 @@
-import { useProductos } from "../../contexts/RecetaContext";
+import { useRecetas } from "../../contexts/RecetaContext";
 
 function ListaIngredientes(props) {
 
-    const productos = useProductos()
-    const listProductos = productos.map(p => 
+    const receta = useRecetas()
+    const listRecetas = receta.map(p => 
         <li key={p.id}>{p.nombre}</li>
     );
     return (
         <>
             {!props.titulo && <p>Sin titulo</p>}
             {props.titulo && <p>{props.titulo}</p>}
-            <ul>{listProductos}</ul>
+            <ul>{listRecetas}</ul>
         </>
     )
 }

@@ -1,10 +1,10 @@
 import { Container, Typography, Button, Box, CircularProgress, Alert } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 import { useParams, useNavigate } from "react-router-dom";
-import { useRecetas } from '../contexts/RecetasContext';
+import { useRecetas } from '../contexts/RecetaContext'; // ← Cambié a RecetaContext (sin "s")
 import RecetaDetalle from '../components/recetas/recetaDetalle';
 
-const RecetaDetallePage = () =>{
+const RecetaDetallePage = () => {
     
     const { id } = useParams();
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ const RecetaDetallePage = () =>{
                 </Alert>
                 <Button
                     variant="contained"
-                    onClick={()=> navigate('/recetas')}
+                    onClick={()=> navigate('/receta')} // ← Cambié a '/receta'
                     startIcon={<ArrowBack />}
                 > Volver al listado </Button>
             </Container>
@@ -38,7 +38,7 @@ const RecetaDetallePage = () =>{
         <Container maxWidth="lg" sx={{ py: 4}}>
             <Button 
                 variant="outlined" 
-                onClick={()=> navigate('/recetas')}
+                onClick={()=> navigate('/receta')} // ← Cambié a '/receta'
                 startIcon={<ArrowBack />}
                 sx={{ mb: 2 }}
             > Volver al listado </Button>

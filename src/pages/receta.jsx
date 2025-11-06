@@ -1,35 +1,43 @@
-import { useEffect, useState } from "react";
-import ListaIngredientes from "../components/recetas/recetaList";
-import { RecetaProvider } from "../contexts/RecetaContext";
-import { Container, Typography, Alert } from "@mui/material";
+// receta.jsx
+// receta.jsx
+import { useParams } from 'react-router-dom';
+import { useRecetas } from '../contexts/RecetaContext';
+import IngredientesList from '../components/recetas/ingredientesList';
 
-function RecetaPage() {
-    const [productos, setProductos] = useState([]);
-    const [hasError, setError] = useState(false);
+const RecetaPage = () => {
+  const { getRecetaById } = useRecetas();
+  const { id } = useParams();
+  
+  const receta = getRecetaById(id);
 
-    return (
-        <RecetaProvider>
-            <Container maxWidth="lg" sx={{ py: 4 }}>
-                <Typography 
-                    variant="h3" 
-                    component="h1" 
-                    gutterBottom 
-                    align="center"
-                    sx={{ mb: 4 }}
-                >
-                    Mi Receta
-                </Typography>
-                
-                {hasError && (
-                    <Alert severity="error" sx={{ mb: 2 }}>
-                        ¡Ha ocurrido un error al cargar la receta!
-                    </Alert>
-                )}
+  if (!receta) {
+    return <div>Receta no encontrada</div>;
+  }
 
-                <ListaIngredientes titulo={"ingredientes"} productos={productos}/>
-            </Container>
-        </RecetaProvider>
-    )
-}
+  return (
+    <div>
+      <h1>{receta.titulo}</h1>
+      <img src={receta.imagen} alt={receta.titulo} style={{width: '300px'}} />
+      <p>{receta.descripcion}</p>
+      
+      <div>
+        <p><strong>Tiempo de preparación:</strong> {receta.tiempoPreparacion}</p>
+        <p><strong>Dificultad:</strong> {receta.dificultad}</p>
+        <p><strong>Porciones:</strong> {receta.porciones}</p>
+      </div>
+
+      <IngredientesList ingredientes={receta.ingredientes} />
+
+      <div>
+        <h3>Preparación:</h3>
+        <ol>
+          {receta.pasos.map((paso, index) => (
+            <li key={index}>{paso}</li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  );
+};
 
 export default RecetaPage;
